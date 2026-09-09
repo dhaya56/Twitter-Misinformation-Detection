@@ -1,4 +1,4 @@
-# Social Media Misinformation Detection through Spatio-Temporal Propagation Pattern Analysis
+# Twitter Misinformation Detection through Spatio-Temporal Propagation Pattern Analysis
 
 [![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.6-EE4C2C?logo=pytorch)](https://pytorch.org/)
