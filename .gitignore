@@ -1,0 +1,74 @@
+# ── Python ────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+
+# ── Virtual Environments ───────────────────────────────
+.env*
+!.env.example
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+test_env/
+
+# ── IDEs ───────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# ── Jupyter (kept as safety net even though currently unused) ──
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Model Checkpoints (large binary files — not included) ────
+backend/checkpoints/
+
+# ── Dataset (not included — raw + processed data) ─────────────
+dataset/
+
+# ── Results (generated at runtime) ────────────────────
+results/knn_index.pt
+results/moderation/
+
+# Keep these result files (small, useful for reproducibility)
+!results/calibration.json
+!results/evaluation_results.json
+!results/ablation_results.json
+
+# ── Streamlit cache ────────────────────────────────────
+.streamlit/
+
+# ── OS files ───────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Logs ──────────────────────────────────────────────
+*.log
+logs/
+runs/
+
+# ── Temporary files ────────────────────────────────────
+*.tmp
+*.bak
+tmp/
+temp/

@@ -1,0 +1,42 @@
+# PyTorch, TorchVision, TorchAudio, and PyTorch Geometric (with its extension libraries)
+# must be installed separately due to CUDA-specific builds. Do NOT install via this file.
+#
+# Step 1 — Install PyTorch (CUDA 12.4):
+#   pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+#
+# Step 2 — Install PyTorch Geometric core:
+#   pip install torch_geometric==2.7.0
+#
+# Step 3 — Install PyG extension libraries (matched to torch 2.6.0 + cu124):
+#   pip install torch_cluster==1.6.3 torch_scatter==2.1.2 torch_sparse==0.6.18 torch_spline_conv==1.2.2 \
+#       -f https://data.pyg.org/whl/torch-2.6.0+cu124.html
+#
+# Step 4 — Then install everything below:
+#   pip install -r requirements.txt
+
+numpy==2.3.5
+pandas==2.3.3
+scipy==1.17.0
+scikit-learn==1.8.0
+networkx==3.6.1
+
+# NLP / embeddings
+sentence-transformers==5.2.3
+transformers==5.1.0
+tokenizers==0.22.2
+huggingface_hub==1.4.1
+safetensors==0.7.0
+accelerate==1.12.0
+regex==2026.2.19
+
+# App / UI
+streamlit==1.54.0
+plotly==6.5.2
+matplotlib==3.10.8
+
+# Utilities
+tqdm==4.67.3
+PyYAML==6.0.3
+packaging==25.0
+python-dateutil==2.9.0.post0
+pytz==2025.2

@@ -1,0 +1,22 @@
+{
+  "Full model": {
+    "auc": 0.8654,
+    "accuracy": 0.7833,
+    "f1": 0.7566
+  },
+  "w/o d_cv (no CCM)": {
+    "auc": 0.8616,
+    "accuracy": 0.79,
+    "f1": 0.764
+  },
+  "w/o CDP (no d_m,d_tr)": {
+    "auc": 0.8642,
+    "accuracy": 0.7233,
+    "f1": 0.7688
+  },
+  "w/o d_tr": {
+    "auc": 0.8655,
+    "accuracy": 0.7767,
+    "f1": 0.7744
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "optimal_threshold": 0.5058669447898865,
+  "threshold_method": "Per-horizon Youden's J with uncertainty band",
+  "global_uncertainty": {
+    "unc_lo": 0.4259,
+    "unc_hi": 0.5859
+  },
+  "val_sensitivity": 0.6756756756756757,
+  "val_specificity": 0.8918918918918919,
+  "val_youdens_j": 0.5675675675675675,
+  "feature_stats": {
+    "d_m": {
+      "credible_mean": 3.5144,
+      "misinfo_mean": 3.5076,
+      "credible_p75": 3.6659,
+      "misinfo_p25": 3.3634,
+      "separator": 3.5147
+    },
+    "d_cv": {
+      "credible_mean": 0.0002,
+      "misinfo_mean": 0.0002,
+      "credible_p75": 0.0002,
+      "misinfo_p25": 0.0002,
+      "separator": 0.0002
+    },
+    "d_tr": {
+      "credible_mean": 3.5144,
+      "misinfo_mean": 3.5076,
+      "credible_p75": 3.6659,
+      "misinfo_p25": 3.3634,
+      "separator": 3.5147
+    },
+    "sigma2_z": {
+      "credible_mean": 6.4804,
+      "misinfo_mean": 107.7928,
+      "credible_p75": 1.905,
+      "misinfo_p25": 3.175,
+      "separator": 2.54
+    }
+  },
+  "per_horizon_thresholds": {
+    "1": {
+      "threshold": 0.2544,
+      "youdens_j": 0.5405,
+      "sensitivity": 0.8784,
+      "specificity": 0.6622,
+      "unc_lo": 0.2394,
+      "unc_hi": 0.2694
+    },
+    "5": {
+      "threshold": 0.3257,
+      "youdens_j": 0.527,
+      "sensitivity": 0.7027,
+      "specificity": 0.8243,
+      "unc_lo": 0.2907,
+      "unc_hi": 0.3607
+    },
+    "15": {
+      "threshold": 0.3144,
+      "youdens_j": 0.5405,
+      "sensitivity": 0.6892,
+      "specificity": 0.8514,
+      "unc_lo": 0.2694,
+      "unc_hi": 0.3594
+    },
+    "30": {
+      "threshold": 0.3162,
+      "youdens_j": 0.5405,
+      "sensitivity": 0.6892,
+      "specificity": 0.8514,
+      "unc_lo": 0.2762,
+      "unc_hi": 0.3562
+    },
+    "60": {
+      "threshold": 0.2396,
+      "youdens_j": 0.527,
+      "sensitivity": 0.8649,
+      "specificity": 0.6622,
+      "unc_lo": 0.2296,
+      "unc_hi": 0.2496
+    },
+    "360": {
+      "threshold": 0.3864,
+      "youdens_j": 0.527,
+      "sensitivity": 0.6216,
+      "specificity": 0.9054,
+      "unc_lo": 0.3464,
+      "unc_hi": 0.4264
+    },
+    "720": {
+      "threshold": 0.4016,
+      "youdens_j": 0.5405,
+      "sensitivity": 0.6622,
+      "specificity": 0.8784,
+      "unc_lo": 0.3516,
+      "unc_hi": 0.4516
+    },
+    "1440": {
+      "threshold": 0.4643,
+      "youdens_j": 0.5676,
+      "sensitivity": 0.6216,
+      "specificity": 0.9459,
+      "unc_lo": 0.3943,
+      "unc_hi": 0.5343
+    },
+    "2880": {
+      "threshold": 0.4905,
+      "youdens_j": 0.5541,
+      "sensitivity": 0.6216,
+      "specificity": 0.9324,
+      "unc_lo": 0.4205,
+      "unc_hi": 0.5605
+    },
+    "4320": {
+      "threshold": 0.4806,
+      "youdens_j": 0.5541,
+      "sensitivity": 0.6216,
+      "specificity": 0.9324,
+      "unc_lo": 0.4006,
+      "unc_hi": 0.5606
+    },
+    "full": {
+      "threshold": 0.5058669447898865,
+      "youdens_j": 0.5675675675675675,
+      "sensitivity": 0.6756756756756757,
+      "specificity": 0.8918918918918919,
+      "unc_lo": 0.4259,
+      "unc_hi": 0.5859
+    }
+  },
+  "extended_horizons": {
+    "1": {
+      "auc": 0.8758,
+      "accuracy": 0.7767
+    },
+    "5": {
+      "auc": 0.8648,
+      "accuracy": 0.79
+    },
+    "15": {
+      "auc": 0.8609,
+      "accuracy": 0.7733
+    },
+    "30": {
+      "auc": 0.8626,
+      "accuracy": 0.7733
+    },
+    "60": {
+      "auc": 0.8539,
+      "accuracy": 0.77
+    },
+    "360": {
+      "auc": 0.8581,
+      "accuracy": 0.78
+    },
+    "720": {
+      "auc": 0.858,
+      "accuracy": 0.78
+    },
+    "1440": {
+      "auc": 0.8623,
+      "accuracy": 0.7833
+    },
+    "2880": {
+      "auc": 0.8644,
+      "accuracy": 0.78
+    },
+    "4320": {
+      "auc": 0.8608,
+      "accuracy": 0.7833
+    },
+    "full": {
+      "auc": 0.8645,
+      "accuracy": 0.7833
+    }
+  }
+}

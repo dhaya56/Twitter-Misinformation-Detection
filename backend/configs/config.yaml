@@ -1,0 +1,137 @@
+# D:\vit_projects\dl_project\backend\configs\config.yaml
+
+dataset:
+  name: twitter15
+  raw_dir: dataset/raw/twitter15
+  processed_dir: dataset/processed/twitter15
+  secondary_name: twitter16
+  secondary_raw_dir: dataset/raw/twitter16
+  secondary_processed_dir: dataset/processed/twitter16
+
+  # File names
+  label_file: label.txt
+  source_tweets_file: source_tweets.txt
+  tree_dir: tree
+
+  # Label strategy
+  label_mapping: binary_optionA
+  credible_labels: [non-rumor, true]
+  misinfo_labels: [false, unverified]
+  num_classes: 2
+
+  # Node identification
+  node_id_strategy: index_based      # each edge occurrence = new node index
+                                     # duplicate user_ids become separate nodes
+
+  # Timestamp handling
+  timestamp_unit: minutes
+  monotonicity_violation_strategy: clamp   # set child_time = parent_time if violated
+
+  # Snapshot design
+  num_snapshots: 5
+  snapshot_mode: cumulative_equal_time_windows
+  time_normalization: per_claim_max
+
+  # Node cap (applied to full tree)
+  max_nodes_per_tree: 300            # keep earliest-arriving nodes if exceeded
+  min_nodes_per_tree: 3              # all claims already exceed this
+
+  # Early detection horizons (minutes)
+  early_detection_horizons: [60, 360, 720, 1440, 2880, 4320]
+
+  # Features
+  node_feature_dim: 6
+  edge_feature_dim: 3
+  text_embedding_dim: 384
+  text_embedding_model: paraphrase-MiniLM-L6-v2
+
+  # Split
+  split_dir: dataset/raw/twitter15/splits
+  train_ratio: 0.70
+  val_ratio: 0.10
+  test_ratio: 0.20
+  split_seed: 42
+
+  # Verified statistics (twitter15)
+  stats:
+    total_claims: 1490
+    credible: 746
+    misinformation: 744
+    tree_size_min: 57
+    tree_size_median: 261
+    tree_size_max: 2991
+    max_timestamp_median_minutes: 11786.27
+    max_timestamp_max_minutes: 2675420.55
+    max_tree_depth: 13
+    monotonicity_violations: 3659
+    duplicate_child_userids: 6346
+
+model:
+  # Encoder
+  node_feature_dim: 6
+  edge_feature_dim: 3
+  gat_hidden_dim: 64
+  gat_num_heads: 4
+  gat_num_layers: 2
+  snapshot_embed_dim: 128
+  transformer_num_heads: 4
+  transformer_num_layers: 2
+  transformer_dropout: 0.1
+
+  # Latent space
+  latent_dim: 128
+
+  # Text embedding injection
+  text_embed_dim: 384
+  text_projection_dim: 64
+
+  # Diffusion prior
+  diffusion_steps: 200
+  diffusion_inference_steps: 20
+  diffusion_hidden_dim: 256
+  diffusion_num_layers: 4
+  noise_schedule: cosine
+
+  # Counterfactual completion
+  num_completions: 8
+
+  # Detection scoring head
+  detection_input_dim: 4    # [d_m, d_cv, d_tr, sigma2_z]
+  detection_hidden_dim: 64
+
+training:
+  # Phase 1
+  phase1_epochs: 8
+  phase1_lr: 0.001
+  phase1_batch_size: 32
+  phase1_kl_weight_start: 0.001
+  phase1_kl_weight_end: 0.01
+
+  # Phase 2
+  phase2_epochs: 20
+  phase2_lr: 0.001
+  phase2_batch_size: 128
+
+  # Phase 3
+  phase3_epochs: 27
+  phase3_lr: 0.0003
+  phase3_batch_size: 16     # reduced from 24 given larger graph sizes
+  phase3_lambda_aux: 0.3
+  phase3_lambda_smooth: 0.05
+  focal_loss_alpha: 0.25
+  focal_loss_gamma: 2.0
+  gradient_clip: 1.0
+
+  # Early stopping
+  patience: 10
+  monitor_metric: val_auc
+
+paths:
+  checkpoints: backend/checkpoints
+  logs: backend/logs
+  processed_t15: dataset/processed/twitter15
+  processed_t16: dataset/processed/twitter16
+  stats_t15: dataset/processed/twitter15/dataset_stats.json
+  stats_t16: dataset/processed/twitter16/dataset_stats.json
+  embeddings_t15: dataset/processed/twitter15/text_embeddings.pt
+  embeddings_t16: dataset/processed/twitter16/text_embeddings.pt
